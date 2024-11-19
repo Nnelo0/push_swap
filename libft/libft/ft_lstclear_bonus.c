@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:40:40 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/10/24 15:05:12 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/11/19 15:54:30 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	*lst = NULL;
 }
 
-/* t_list	*ft_lstnew(void *content)
+/* t_list	*ft_lstnew(int *content)
 {
 	t_list	*new;
 
 	new = malloc(sizeof(t_list));
 	if (!new)
 		return (NULL);
-	new->content = content;
+	new->content = *content;
 	new->next = NULL;
 	return (new);
 }
@@ -85,7 +85,7 @@ void	print_list(t_list *lst)
 {
 	while (lst)
 	{
-		printf("%s -> ", (char *)lst->content);
+		printf("%d -> ",lst->content);
 		lst = lst->next;
 	}
 	printf("NULL\n");

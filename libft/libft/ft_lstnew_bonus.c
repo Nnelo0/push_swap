@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:46:31 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/19 14:54:34 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/11/19 15:46:01 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@ t_list	*ft_lstnew(int *content)
 	new = malloc(sizeof(t_list));
 	if (!new)
 		return (NULL);
-	new->content = content;
+	new->content = *content;
 	new->next = NULL;
 	return (new);
 }
 
-int main()
+/* int main()
 {
 	int i;
 	i = 42;
 	t_list *test;
 	test = ft_lstnew(&i);
-	printf("%d\n", *(int*)test->content);
+	printf("%d\n", test->content);
 	free (test);
 	return 0;
-}
+} */

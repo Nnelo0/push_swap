@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 09:57:01 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/19 14:54:05 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/11/19 15:53:27 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,15 @@ void	ft_free_split(char **split_arg);
 
 int		error(int argc, char **argv);
 
-/*		lst_libft					*/
+
 
 typedef struct s_list
 {
 	int			content;
 	struct s_list	*next;
 }					t_list;
+
+/*			list_libft			*/
 
 int		ft_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
@@ -42,7 +44,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(int *content);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 13:05:24 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/20 09:55:34 by ebroudic         ###   ########.fr       */
+/*   Created: 2024/11/20 09:36:27 by ebroudic          #+#    #+#             */
+/*   Updated: 2024/11/20 10:01:38 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+static void	push(t_list **src, t_list **dest)
 {
-	char	*dsa;
+	t_list	*tmp;
 
-	dsa = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (dsa == NULL)
-		return (NULL);
-	ft_strcpy(dsa, (char *)s1);
-	ft_strcpy(dsa + ft_strlen(s1), (char *)s2);
-	return (dsa);
+	if (*src == NULL)
+		return ;
+	tmp = *src;
+	*src = (*src)->next;
+	tmp->next = *dest;
+	*dest = tmp;
 }
-/* int main()
+
+void	do_pb(t_list **a, t_list **b)
 {
-	printf("%s\n",ft_strjoin("hello"," world"));
-	return (0);
-} */
+	push(a, b);
+	ft_printf("pb\n");
+}
+
+void	do_pa(t_list **a, t_list **b)
+{
+	push(b, a);
+	ft_printf("pa\n");
+}

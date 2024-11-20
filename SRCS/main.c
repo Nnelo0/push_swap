@@ -6,29 +6,24 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:28:01 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/19 14:49:26 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/11/20 11:37:52 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	print_node_content(void *content)
-{ 
-	ft_printf("%d\n", *(int *)content);
+void	print_node_content(int content)
+{
+	ft_printf("%d\n", content);
 }
 
 int	add_content(t_list **z, char *arg)
 {
 	t_list	*new_node;
-	int		*value;
 
-	value = malloc(sizeof(int));
-	if (!value)
-		return (ft_lstclear(z, free), 1);
-	*value = ft_atoi(arg);
-	new_node = ft_lstnew(value);
+	new_node = ft_lstnew(ft_atoi(arg));
 	if (!new_node)
-		return (free(value), ft_lstclear(z, free), 1);
+		return (ft_lstclear(z), 1);
 	ft_lstadd_back(z, new_node);
 	return (0);
 }
@@ -70,7 +65,7 @@ int	main(int argc, char **argv)
 	ft_lstiter(a, print_node_content);
 	ft_printf("Contenu de la liste 'b':\n");
 	ft_lstiter(b, print_node_content);
-	ft_lstclear(&a, free);
-	ft_lstclear(&b, free);
+	ft_lstclear(&a);
+	ft_lstclear(&b);
 	return (0);
 }

@@ -6,17 +6,16 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 12:48:31 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/19 15:50:38 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/11/20 08:40:29 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *lst)
 {
-	if (!lst || !del)
+	if (!lst)
 		return ;
-	del(lst->content);
 	free(lst);
 }
 

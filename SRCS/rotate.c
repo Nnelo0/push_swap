@@ -1,30 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 13:05:24 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/20 09:55:34 by ebroudic         ###   ########.fr       */
+/*   Created: 2024/11/20 10:21:59 by ebroudic          #+#    #+#             */
+/*   Updated: 2024/11/20 11:38:49 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+static void	rotate(t_list **z)
 {
-	char	*dsa;
+	t_list	*tmp;
 
-	dsa = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (dsa == NULL)
-		return (NULL);
-	ft_strcpy(dsa, (char *)s1);
-	ft_strcpy(dsa + ft_strlen(s1), (char *)s2);
-	return (dsa);
+	if (!z || !(*z) || !(*z)->next)
+		return ;
+	tmp = *z;
+	*z = (*z)->next;
+	tmp->next = NULL;
+	ft_lstadd_back(z, tmp);
 }
-/* int main()
+
+void	do_ra(t_list **a)
 {
-	printf("%s\n",ft_strjoin("hello"," world"));
-	return (0);
-} */
+	rotate(a);
+	ft_printf("ra\n");
+}
+
+void	do_rb(t_list **b)
+{
+	rotate(b);
+	ft_printf("rb\n");
+}
+
+void	do_rr(t_list **a, t_list **b)
+{
+	rotate(b);
+	rotate(a);
+	ft_printf("rr\n");
+}

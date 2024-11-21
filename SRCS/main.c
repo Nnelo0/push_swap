@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:28:01 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/20 11:37:52 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/11/21 09:12:15 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,11 @@ int	main(int argc, char **argv)
 	ft_lstiter(a, print_node_content);
 	ft_printf("Contenu de la liste 'b':\n");
 	ft_lstiter(b, print_node_content);
+	if (is_sorted(a))
+		return (0);
+	mini_sort(&a);
+	ft_printf("Contenu de la liste 'a':\n");
+	ft_lstiter(a, print_node_content);
 	ft_lstclear(&a);
 	ft_lstclear(&b);
 	return (0);

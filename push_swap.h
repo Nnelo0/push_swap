@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 09:57:01 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/20 11:37:14 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/11/20 15:04:36 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,6 @@
 
 # include "libft/libft/libft.h"
 # include "libft/printf/ft_printf.h"
-
-/*			structure			*/
-typedef struct s_list
-{
-	int				content;
-	struct s_list	*next;
-}					t_list;
-
-/*			list_libft			*/
-
-int		ft_lstsize(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstiter(t_list *lst, void (*f)(int));
-void	ft_lstdelone(t_list *lst);
-void	ft_lstclear(t_list **lst);
-t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstnew(int content);
-t_list	*ft_lstmap(t_list *lst, int (*f)(int));
 
 /*			error_utils			*/
 
@@ -68,5 +49,10 @@ void	do_rr(t_list **a, t_list **b);
 void	do_rrr(t_list **a, t_list **b);
 void	do_rrb(t_list **b);
 void	do_rra(t_list **a);
+
+/*			sort				*/
+
+int		is_sorted(t_list *a);
+void	mini_sort(t_list **a);
 
 #endif

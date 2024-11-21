@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:14:48 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/19 12:49:42 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/11/20 13:33:39 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,29 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "../../push_swap.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
 # endif
+
+/*			structure			*/
+typedef struct s_list
+{
+	int				content;
+	struct s_list	*next;
+}					t_list;
+
+/*			list_libft			*/
+
+int		ft_lstsize(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstiter(t_list *lst, void (*f)(int));
+void	ft_lstdelone(t_list *lst);
+void	ft_lstclear(t_list **lst);
+t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstnew(int content);
+t_list	*ft_lstmap(t_list *lst, int (*f)(int));
 
 char	*get_next_line(int fd);
 

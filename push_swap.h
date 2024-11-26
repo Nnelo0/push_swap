@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 09:57:01 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/20 15:04:36 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/11/25 15:41:45 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include "libft/libft/libft.h"
 # include "libft/printf/ft_printf.h"
+
+/*			print_list			*//*			a retirer			*/
+
+void	print_list(t_list *a, t_list *b);
 
 /*			error_utils			*/
 
@@ -54,5 +58,7 @@ void	do_rra(t_list **a);
 
 int		is_sorted(t_list *a);
 void	mini_sort(t_list **a);
+void	sort(t_list **a, t_list **b);
+int	ft_pivot(t_list *a);
 
 #endif

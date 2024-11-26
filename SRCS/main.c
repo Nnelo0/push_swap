@@ -6,16 +6,11 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:28:01 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/21 09:12:15 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/11/26 12:57:56 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	print_node_content(int content)
-{
-	ft_printf("%d\n", content);
-}
 
 int	add_content(t_list **z, char *arg)
 {
@@ -61,15 +56,11 @@ int	main(int argc, char **argv)
 	b = NULL;
 	error(argc, argv);
 	add_list(&a, argc, argv);
-	ft_printf("Contenu de la liste 'a':\n");
-	ft_lstiter(a, print_node_content);
-	ft_printf("Contenu de la liste 'b':\n");
-	ft_lstiter(b, print_node_content);
+	//print_list(a, b);
 	if (is_sorted(a))
 		return (0);
-	mini_sort(&a);
-	ft_printf("Contenu de la liste 'a':\n");
-	ft_lstiter(a, print_node_content);
+	sort(&a, &b);
+	//print_list(a, b);
 	ft_lstclear(&a);
 	ft_lstclear(&b);
 	return (0);

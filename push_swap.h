@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 09:57:01 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/25 15:41:45 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:25:53 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,31 @@ void	do_ra(t_list **a);
 void	do_rb(t_list **b);
 void	do_rr(t_list **a, t_list **b);
 
-/*			reverse_rotate				*/
+/*			reverse_rotate		*/
 
 void	do_rrr(t_list **a, t_list **b);
 void	do_rrb(t_list **b);
 void	do_rra(t_list **a);
 
-/*			sort				*/
+/*			sort_utils			*/
 
 int		is_sorted(t_list *a);
+int		ft_min(t_list *a);
+int		ft_max(t_list *a);
+int		do_better_a(t_list *a, t_list *b);
+int		do_better_b(t_list *a, t_list *b);
+
+/*			sort_utils_utils			*/
+
+int	better_sort_b(t_list *a);
+int	reverse_sort_b(t_list *b);
+
+/*			sort				*/
+
 void	mini_sort(t_list **a);
 void	sort(t_list **a, t_list **b);
-int	ft_pivot(t_list *a);
+void	large_sort(t_list **a, t_list **b);
+void	sort_a(t_list **a, t_list **b);
+void	sort_b(t_list **a, t_list **b, int max, int min);
 
 #endif

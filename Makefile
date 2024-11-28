@@ -3,7 +3,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = SRCS/error_utils.c SRCS/error.c SRCS/main.c \
        SRCS/push.c SRCS/reverse_rotate.c SRCS/rotate.c \
-       SRCS/sort_utils.c SRCS/swap.c SRCS/print_list.c
+       SRCS/sort_utils.c SRCS/swap.c SRCS/print_list.c \
+	   SRCS/sort.c SRCS/sort_utils_utils.c
 
 LIBFTDIR = libft
 LIBFT = $(LIBFTDIR)/libft.a

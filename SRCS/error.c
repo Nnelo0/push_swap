@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 08:55:00 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/19 09:09:08 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:30:11 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	error(int argc, char **argv)
 	char	**split_arg;
 
 	if (argc < 2)
-		print_error();
+		return (0);
 	split_arg = ft_split(argv[1], ' ');
 	if (!split_arg)
 		print_error();

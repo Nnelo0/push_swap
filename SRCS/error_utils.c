@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 13:48:23 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/19 09:23:35 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:02:00 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,31 @@ void	ft_free_split(char **split_arg)
 		i++;
 	}
 	free(split_arg);
+}
+
+int	ft_in_int(const char *nptr)
+{
+	int		i;
+	long	result;
+	int		sign;
+
+	i = 0;
+	result = 0;
+	sign = 1;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			sign = -sign;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		result = result * 10 + (nptr[i] - '0');
+		if ((result * sign) > INT_MAX || (result * sign) < INT_MIN)
+			return (1);
+		i++;
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 08:56:18 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/28 16:37:11 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:02:56 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,34 +55,26 @@ void	large_sort(t_list **a, t_list **b)
 {
 	int	max;
 	int	min;
+	int	cheapest;
+	int	closest;
 
 	min = ft_min(*a);
 	max = ft_max(*a);
-	while (ft_lstsize(*a) > 3)
+	while (ft_lstsize(*a) > 3 && !is_sorted(*a))
 		sort_b(a, b, max, min);
 	if (!is_sorted(*a))
 		mini_sort(a);
 	while (*b)
-		sort_a(a, b);
-	while (!is_sorted(*a))
 	{
-		if ((*a)->content > min)
-			do_rra(a);
-		else
-			break ;
-	}
-}
-
-void	sort_a(t_list **a, t_list **b)
-{
-	if ((*a)->content > (*b)->content)
-	{
-		while (do_better_a(*a, *b))
-			do_rra(a);
+		cheapest = find_the_cheapest(b, a);
+		value_on_top_b(b, cheapest);
+		closest = find_closest_upper(a, b);
+		if (!can_push(a, closest))
+			value_on_top(a, closest);
 		do_pa(a, b);
 	}
-	else if ((*a)->content < (*b)->content)
-		do_ra(a);
+	if (!is_sorted(*a))
+		value_on_top(a, ft_min(*a));
 }
 
 void	sort_b(t_list **a, t_list **b, int max, int min)
@@ -92,12 +84,7 @@ void	sort_b(t_list **a, t_list **b, int max, int min)
 	{
 		if (*b)
 		{
-			
-			while (do_better_b(*a, *b) && (*b)->content != min)
-				do_rrb(b);
-			while (better_sort_b(*b))
-				do_rb(b);
-			while (reverse_sort_b(*b))
+			while (do_better_b(*a, *b))
 				do_rb(b);
 		}
 		do_pb(a, b);

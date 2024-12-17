@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 11:45:40 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/11/28 13:45:36 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:04:42 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,40 +55,24 @@ int	ft_max(t_list *a)
 	return ((high));
 }
 
-int	do_better_a(t_list *a, t_list *b)
+int	do_better_b(t_list *a, t_list *b)
 {
-	int	max;
-	int	i;
+	int		min;
+	int		i;
+	t_list	*tmp;
 
-	if (!a)
-		return (0);
-	i = ft_lstsize(a);
-	max = ft_max(a);
-	while (i != 1)
-	{
-		a = a->next;
-		i--;
-	}
-	if (a->content > b->content && a->content != max)
-		return (1);
-	return (0);
-}
-
-int do_better_b(t_list *a, t_list *b)
-{
-	int min;
-	int i;
-
-	if (!a)
+	(void)a;
+	if (!b || !b->next)
 		return (0);
 	i = ft_lstsize(b);
 	min = ft_min(b);
+	tmp = b;
 	while (i != 1)
 	{
 		b = b->next;
 		i--;
 	}
-	if (a->content < b->content && b->content != min)
+	if (tmp->content < b->content && b->content != min)
 		return (1);
 	return (0);
 }

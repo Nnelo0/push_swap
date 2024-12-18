@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 13:48:23 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/12/17 10:02:00 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/12/18 09:46:02 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_sign(char c)
 {
-	if (c == '-' || c == '+')
+	if (c == '-')
 		return (1);
 	return (0);
 }
@@ -26,16 +26,10 @@ int	nb_cmp(char *s1, char *s2)
 
 	i = 0;
 	j = i;
-	if (s1[i] == '+')
-	{
-		if (s2[j] != '+')
-			i++;
-	}
-	else
-	{
-		if (s2[j] == '+')
-			j++;
-	}
+	while (s1[i] == '0')
+		i++;
+	while (s2[j] == '0')
+		j++;
 	while (s1[i] && s2[j] && s1[i] == s2[j])
 	{
 		i++;

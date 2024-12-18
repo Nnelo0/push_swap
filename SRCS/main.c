@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:28:01 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/12/16 14:49:49 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/12/18 09:04:14 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 	error(argc, argv);
 	add_list(&a, argc, argv);
 	if (is_sorted(a))
-		return (0);
+		return (ft_lstclear(&a), ft_lstclear(&b), 0);
 	sort(&a, &b);
 	ft_lstclear(&a);
 	ft_lstclear(&b);

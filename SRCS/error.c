@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 08:55:00 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/12/17 10:01:41 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/12/18 09:41:43 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	is_double(char **argv)
 		j = i + 1;
 		while (argv[j])
 		{
-			if (nb_cmp(argv[i], argv[j]) == 0)
+			if (!nb_cmp(argv[i], argv[j]))
 				return (1);
 			j++;
 		}

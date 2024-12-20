@@ -6,18 +6,18 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:14:38 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/12/17 10:04:16 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/12/19 08:45:36 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	find_position_in_b(t_list **stack_b, int value)
+static int	find_position_in_a(t_list **stack_a, int value)
 {
 	t_list	*current;
 	int		pos;
 
-	current = *stack_b;
+	current = *stack_a;
 	pos = 0;
 	while (current)
 	{
@@ -51,15 +51,15 @@ int	find_the_cheapest(t_list **stack_a, t_list **stack_b)
 	int		min_cost;
 	int		cost;
 
-	current = *stack_a;
+	current = *stack_b;
 	best_value = current->content;
 	pos_a = 0;
 	min_cost = 2147483647;
 	while (current)
 	{
 		cost = calculate_cost(pos_a,
-				find_position_in_b(stack_b, current->content),
-				ft_lstsize(*stack_a), ft_lstsize(*stack_b));
+				find_position_in_a(stack_a, current->content),
+				ft_lstsize(*stack_b), ft_lstsize(*stack_a));
 		if (cost < min_cost)
 		{
 			min_cost = cost;

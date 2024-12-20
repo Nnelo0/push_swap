@@ -6,7 +6,7 @@
 /*   By: ebroudic <ebroudic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 08:56:18 by ebroudic          #+#    #+#             */
-/*   Updated: 2024/12/17 10:02:56 by ebroudic         ###   ########.fr       */
+/*   Updated: 2024/12/19 08:45:52 by ebroudic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	large_sort(t_list **a, t_list **b)
 		mini_sort(a);
 	while (*b)
 	{
-		cheapest = find_the_cheapest(b, a);
+		cheapest = find_the_cheapest(a, b);
 		value_on_top_b(b, cheapest);
 		closest = find_closest_upper(a, b);
 		if (!can_push(a, closest))
